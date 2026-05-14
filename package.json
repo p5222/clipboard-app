@@ -7,9 +7,9 @@
     "start": "electron .",
     "build": "electron-builder --win portable",
     "build:win": "electron-builder --win portable",
-    "build:mac": "electron-builder --mac dmg zip",
+    "build:mac": "electron-builder --mac dmg zip --universal",
     "build:dir:mac": "electron-builder --mac dir",
-    "build:all": "electron-builder --mac dmg zip --win portable"
+    "build:all": "electron-builder --mac dmg zip --universal --win portable"
   },
   "build": {
     "appId": "com.clipboard.history",
@@ -28,7 +28,7 @@
         }
       ],
       "icon": "build/icon.ico",
-      "artifactName": "clipboard-history-windows-v${version}.${ext}",
+      "artifactName": "clipboard-history-windows.${ext}",
       "signAndEditExecutable": false
     },
     "mac": {
@@ -37,7 +37,8 @@
         "zip"
       ],
       "category": "public.app-category.productivity",
-      "artifactName": "clipboard-history-macos-${version}-${arch}.${ext}"
+      "icon": "build/icon.png",
+      "artifactName": "clipboard-history-macos-universal.${ext}"
     },
     "portable": {},
     "files": [
