@@ -1,0 +1,66 @@
+{
+  "name": "clipboard-history",
+  "version": "1.0.0",
+  "description": "Windows 历史剪贴板管理工具",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable --publish never",
+    "build:win": "electron-builder --win portable --publish never",
+    "build:mac": "electron-builder --mac dmg zip --universal --publish never",
+    "build:dir:mac": "electron-builder --mac dir",
+    "build:all": "electron-builder --mac dmg zip --universal --win portable --publish never"
+  },
+  "build": {
+    "appId": "com.clipboard.history",
+    "productName": "Clipboard History",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "clipboard-history-windows.${ext}",
+      "signAndEditExecutable": false
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.productivity",
+      "icon": "build/icon.png",
+      "artifactName": "clipboard-history-macos-universal.${ext}"
+    },
+    "portable": {},
+    "files": [
+      "main.js",
+      "index.html",
+      "renderer.js",
+      "build/**/*",
+      "package.json"
+    ]
+  },
+  "keywords": [
+    "clipboard",
+    "history",
+    "electron"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  }
+}
